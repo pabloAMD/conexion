@@ -16,8 +16,6 @@ router.get('/', (req, res) => {
     dbconn.query("SELECT * FROM users", function(err, result, fields) {
         if (err) throw err;
         res.json(result);
-
-
     });
 
 });
@@ -29,10 +27,8 @@ router.post('/', (req, res) => {
     console.log('Database connection successful');
     dbconn.query("INSERT INTO users  VALUES ('" + req.body.user_id + "','" + req.body.user_name + "','" + req.body.user_apellido + "','" + req.body.user_direccion + "');", function(err, result, fields) {
         if (err) throw err;
-        res.json({
-            "se": "inserto "
-        });
 
+        res.redirect(301, "http://35.239.22.110:80");
     });
 
 
